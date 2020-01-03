@@ -1,0 +1,28 @@
+{
+  "name": "kaiquegarcia/sponteweb-sdk-php",
+  "description": "SDK PHP para integração com Sponte API",
+  "homepage": "http://webservices.sponteweb.com.br/WSApiSponteRest/swagger/ui/index",
+  "keywords": ["sponte", "web", "sdk", "php", "api"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kaique Garcia",
+      "email": "kaiquegarciam@gmail.com"
+    }
+  ],
+  "version": "1.0.0",
+  "require": {
+    "php": "^7.2",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "ext-curl": "*",
+    "kaiquegarcia/sdk-php-base": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sponteweb\\": "src/"
+    },
+    "files": ["src/spl_autoload.php"]
+  }
+}
