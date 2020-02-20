@@ -3,6 +3,7 @@
 namespace Sponteweb\API\Entities;
 
 use DateTime;
+use SdkBase\Exceptions\Flow\UnimplementedMethodException;
 use SdkBase\Exceptions\Http\NotFoundException;
 use Sponteweb\API\Entity;
 use Sponteweb\API\Settings;
@@ -10,7 +11,6 @@ use Sponteweb\API\Settings;
 class Student extends Entity
 {
     const SITUATION_ACTIVE = -1;
-    const SITUATION_INACTIVE = -2;
 
     protected function getIdVariableName(): string
     {
@@ -20,16 +20,32 @@ class Student extends Entity
     public function toArray(): array
     {
         return [
-            "student_id" => $this->getId(),
+            $this->getIdVariableName() => $this->getId(),
             "name" => $this->getName(),
             "email" => $this->getEmail(),
             "spontenet" => [
                 "username" => $this->getSponteNetUsername(),
                 "password" => $this->getSponteNetPassword(),
             ],
+            "gender" => $this->getGender(),
+            "cpf" => $this->getCpf(),
+            "rg" => $this->getRg(),
             "birthdate" => $this->getBirthdate(),
             "situation" => $this->getSituation(),
+            "registrations" => $this->getRegistrations(),
             "active" => $this->isActive(),
+            "address" => [
+                "street" => $this->getAddress(),
+                "number" => $this->getNumber(),
+                "zipcode" => $this->getZipCode(),
+                "city" => $this->getCity(),
+                "state" => $this->getSTate(),
+            ],
+            "phones" => [
+                "home" => $this->getHomePhone(),
+                "cell" => $this->getCellPhone(),
+            ],
+            "job" => $this->getJob(),
         ];
     }
 
@@ -150,6 +166,12 @@ class Student extends Entity
         return $this->getProperty("spontenet_password");
     }
 
+    public function getRegistrations(): array
+    {
+        $registrations = $this->getProperty("registrations");
+        return is_array($registrations) ? $registrations : [];
+    }
+
     public function fetch($id, array $postFields = []): void
     {
         $postFields[$this->getIdVariableName()] = $id;
@@ -162,5 +184,23 @@ class Student extends Entity
             throw new NotFoundException();
         }
         $this->fetchResult($result[0], $postFields);
+    }
+
+    /**
+     * @param array $postFields
+     * @throws UnimplementedMethodException
+     */
+    public function save(array $postFields = []): void
+    {
+        throw new UnimplementedMethodException();
+    }
+
+    /**
+     * @param array $postFields
+     * @throws UnimplementedMethodException
+     */
+    public function delete(array $postFields = []): void
+    {
+        throw new UnimplementedMethodException();
     }
 }
