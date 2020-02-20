@@ -11,13 +11,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kaiqueg/sdk-php-base.git",
-                "reference": "5c5408419c2b34a461ca6ba5fb4f4ccc31e1c7b0"
+                "url": "https://github.com/kaiquegarcia/sdk-php-base.git",
+                "reference": "39ede58d99df148589b3167d16d55e88a3e05c08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kaiqueg/sdk-php-base/zipball/5c5408419c2b34a461ca6ba5fb4f4ccc31e1c7b0",
-                "reference": "5c5408419c2b34a461ca6ba5fb4f4ccc31e1c7b0",
+                "url": "https://api.github.com/repos/kaiquegarcia/sdk-php-base/zipball/39ede58d99df148589b3167d16d55e88a3e05c08",
+                "reference": "39ede58d99df148589b3167d16d55e88a3e05c08",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "php",
                 "sdk"
             ],
-            "time": "2020-01-03T12:49:56+00:00"
+            "time": "2020-02-20T02:54:05+00:00"
         }
     ],
     "packages-dev": [],
