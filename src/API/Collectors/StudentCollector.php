@@ -50,9 +50,7 @@ class StudentCollector extends Collector
     protected function getListFromVendor(): array
     {
         $API = new Student();
-        $students = $API->search([
-            "active" => "true",
-        ]);
+        $students = $API->search();
         $list = [];
         if (!empty($students)) {
             foreach ($students as $student) {
